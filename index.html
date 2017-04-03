@@ -16,6 +16,7 @@
   </head>
   <body>
     <ul id="messages"></ul>
+    <p id = "ms"></p>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
@@ -38,7 +39,7 @@
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
             msgs.push($('#m').val());
-           document.getElementById('#messages').innerHTML = "msgss: " + msgs.join(", ");
+           document.getElementById('#ms').innerHTML = "msgss: " + msgs.join(", ");
             // $('#messages').append($('<li>').text(msgs.join()));
           window.scrollTo(0, document.body.scrollHeight);
         });
@@ -51,7 +52,7 @@
              console.log(msg);
             msgs.push($('#m').val());
            //  $('#messages').append($('<li>').text(msgs.join()));
-            document.getElementById('#messages').innerHTML = "msgss: " + msgs.join(", ");
+            document.getElementById('#ms').innerHTML = "msgss: " + msgs.join(", ");
              //document.getElementById("myBtn").innerHTML = 'nice bruh';
             
              //document.getElementById('para').innerHTML = online;
