@@ -105,13 +105,9 @@ this.scene = scene
             //player.name = $('#m').val();
         
         socket.on('connect', function() {
-  socket.emit('hunts', 'online');
-           $('form').submit(function(){
-          socket.emit('hunts', $('#m').val());
+  socket.emit('hunts',  $('#m').val());
           $('#m').val('');
-          msgs.push($('#m').val())
-          return false;
-        });
+           return false;
           socket.on('hunts', function(msg){
             console.log(msg)
             online++
