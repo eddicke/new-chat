@@ -119,6 +119,8 @@ this.scene = scene
         });
           //tracking other users
          var nme = $('#m').val();
+        var player = new M(nme,Math.random()*5,scene);
+            player.name = $('#m').val();
         
         socket.on('connect', function() {
   socket.emit('hunts', 'online');
@@ -127,8 +129,7 @@ this.scene = scene
             online++
             console.log(online)
             
-            var player = new M(nme,Math.random()*5,scene);
-            player.name = $('#m').val();
+            
             scene.onPointerDown = function(){
             //alert(player.name);
               alert(player.name);
