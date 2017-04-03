@@ -128,6 +128,7 @@ this.scene = scene
             console.log(online)
             
             var player = new M(nme,Math.random()*5,scene);
+            player.name = $('#m').val();
             scene.onPointerDown = function(){
             //alert(player.name);
               alert(player.name);
