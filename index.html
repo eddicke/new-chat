@@ -106,17 +106,26 @@ this.scene = scene
         
         socket.on('connect', function() {
   socket.emit('hunts', 'online');
+           $('form').submit(function(){
+          socket.emit('hunts', $('#m').val());
+          $('#m').val('');
+          msgs.push($('#m').val())
+          return false;
+        });
           socket.on('hunts', function(msg){
             console.log(msg)
             online++
+            ////-----
+            
+            ///++++
             var player = new M(msg,Math.random()*5,scene);
             console.log(online)
             
              var text = document.getElementById('messages').innerHTML();
-           // scene.onPointerDown = function(){
-           // alert(player.name);
+           scene.onPointerDown = function(){
+          alert(player.name);
               //alert(player.name);
-           // }
+           }
            // return online;
             var text = document.getElementById('messages')
             if(online === 3){
@@ -143,11 +152,11 @@ this.scene = scene
          })
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
-          player.name = msg;
-           scene.onPointerDown = function(){
-            alert(player.name);
+         // player.name = msg;
+          // scene.onPointerDown = function(){
+            //alert(player.name);
               //alert(player.name);
-            }
+           // }
           $('#mesg').append(stats);
            if(online === 2){
            // alert(text.innerHTML);
