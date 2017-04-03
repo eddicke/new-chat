@@ -125,6 +125,7 @@ this.scene = scene
          var nme = $('#m').val();
         var nom = 'namee'
          var txt =   $('#messages').text();
+         var text = document.getElementById('messages')
         var player = new M(nom,Math.random()*5,scene);
             //player.name = $('#m').val();
         
@@ -137,7 +138,7 @@ this.scene = scene
             
             
             scene.onPointerDown = function(){
-            alert(txt.html());
+            alert(text.innerHTML());
               //alert(player.name);
             }
            // return online;
