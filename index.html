@@ -85,14 +85,14 @@ this.scene = scene
         var player = new M('o',Math.random()*5,scene);
         socket.on('connect', function() {
           var text = document.getElementById('messages');
-  socket.emit('hunts', text.innerHTML);
+  socket.emit('hunts', text.textContent);
           
           
           socket.on('hunts', function(msg){
              console.log(msg);
             online++;
             player.name = 'ok'
-            var text = document.getElementById('messages')
+            //var text = document.getElementById('messages')
             if(online === 2){
             //alert(text.innerHTML);
             }
