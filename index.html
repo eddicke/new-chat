@@ -27,10 +27,10 @@
         var socket = io();
        var online = 0;
         socket.on('connect', function() {
-  socket.emit('chat message', 'online');
+  socket.emit('hunts', 'online');
           
           
-          socket.on('chat message', function(msg){
+          socket.on('hunts', function(msg){
              console.log(msg);
             online++;
             var text = document.getElementById('messages')
