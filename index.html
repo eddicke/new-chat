@@ -119,7 +119,7 @@ this.scene = scene
         });
           //tracking other users
          var nme = $('#m').val();
-        var player = new M('king'+nme,Math.random()*5,scene);
+        var player = new M(String(nme),Math.random()*5,scene);
             //player.name = $('#m').val();
         
         socket.on('connect', function() {
