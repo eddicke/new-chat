@@ -65,8 +65,8 @@
          // create a new player****
            var pos;
     var M = function(name, no, scene){
-      this.name = $('#m').val();
-        this.mesh = BABYLON.Mesh.CreateBox(this.name, 2, scene);
+      this.name = name;
+        this.mesh = BABYLON.Mesh.CreateBox(name, 2, scene);
      //   var pos;
 this.no = no;
 this.mesh.position.y = no;
@@ -119,8 +119,8 @@ this.scene = scene
         });
           //tracking other users
          var nme = $('#m').val();
-        var player = new M(nme,Math.random()*5,scene);
-            player.name = $('#m').val();
+        var player = new M('king',Math.random()*5,scene);
+            //player.name = $('#m').val();
         
         socket.on('connect', function() {
   socket.emit('hunts', 'online');
