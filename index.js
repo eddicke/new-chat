@@ -8,11 +8,12 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-    console.log('i think i saw something...');
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
- console.log('i think i saw something...');
-  });
+    socket.on("im online", function (data) {
+        // announce the online status of a new user
+        socket.broadcast.emit('connected user',  {"name": socket.handshake.headers.user.username});
+    });
+  //online
+  
   //game try!
   socket.on('ademola', function(gme){
     io.emit('ademola', gme);
