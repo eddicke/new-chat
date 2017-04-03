@@ -8,11 +8,11 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-    socket.on('im online', function (data) {
-        // announce the online status of a new user
-        io.emit('im online',  data);
-      console.log('ok')
-    });
+    console.log('i think i saw something...');
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+ console.log('i think i saw something...');
+  });
   //online
   
   //game try!
