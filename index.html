@@ -43,8 +43,8 @@
 });*/
         socket.on('connect', function() {
   socket.emit('im online', 'online');
-          socket.on('im online', function(msg){
-            console.log(msg)
+          socket.on('im online', function(data){
+            console.log(data)
           })
 });
          //tracking other users
