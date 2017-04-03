@@ -94,13 +94,15 @@ this.scene = scene
           })
          
 });*/
+        var nme = $('#messages').text();
+        
         socket.on('connect', function() {
   socket.emit('hunts', 'online');
           socket.on('hunts', function(msg){
             console.log(msg)
             online++
             console.log(online)
-            var nme = $('#messages').text();
+            
             var player = new M(nme,Math.random()*5,scene);
             scene.onPointerDown = function(){
             //alert(player.name);
