@@ -35,7 +35,7 @@
             online++;
             var text = document.getElementById('messages')
             if(online === 2){
-            alert(text.innerHTML);
+            //alert(text.innerHTML);
             }
             console.log(online);
           })
@@ -53,7 +53,9 @@
         
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
-          
+           if(online === 2){
+            alert(text.innerHTML);
+            }
         });
           //tracking other users
         //var msgs = [];
