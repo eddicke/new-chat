@@ -93,29 +93,8 @@ this.scene = scene
             console.log(online);
           })
          
-});*/
-        var nme = $('#messages').text();
-        
-        socket.on('connect', function() {
-  socket.emit('hunts', 'online');
-          socket.on('hunts', function(msg){
-            console.log(msg)
-            online++
-            console.log(online)
-            
-            var player = new M(nme,Math.random()*5,scene);
-            scene.onPointerDown = function(){
-            //alert(player.name);
-              alert(player.name);
-            }
-           // return online;
-            var text = document.getElementById('messages')
-            if(online === 3){
-           socket.emit('state', text.innerHTML);
-          }
-          })
-          
-});
+});*///initial position
+       
          //tracking other users
         var msgs = [];
         
@@ -139,6 +118,28 @@ this.scene = scene
             }
         });
           //tracking other users
+         var nme = $('#messages').text();
+        
+        socket.on('connect', function() {
+  socket.emit('hunts', 'online');
+          socket.on('hunts', function(msg){
+            console.log(msg)
+            online++
+            console.log(online)
+            
+            var player = new M(nme,Math.random()*5,scene);
+            scene.onPointerDown = function(){
+            //alert(player.name);
+              alert(player.name);
+            }
+           // return online;
+            var text = document.getElementById('messages')
+            if(online === 3){
+           socket.emit('state', text.innerHTML);
+          }
+          })
+          
+});
         //var msgs = [];
        
       });
