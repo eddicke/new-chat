@@ -60,6 +60,7 @@
          socket.on('hunts', function(msg){
            if(online === 2){
            alert('ok')
+             $('#messages').append($('<li>').text('hellobuddy'));
            }
          })
         socket.on('chat message', function(msg){
