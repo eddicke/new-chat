@@ -14,6 +14,10 @@ io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
+  io.on('connection', function(socket){
+  socket.on('hunts', function(msg){
+    io.emit('hunts', msg);
+  });
   //old messages*********************************
   socket.on('nickname',function(data, callback){
 
