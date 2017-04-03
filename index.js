@@ -8,9 +8,10 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-    socket.on("im online", function (data) {
+    socket.on('im online', function (data) {
         // announce the online status of a new user
-        socket.broadcast.emit('connected user',  {"name": socket.handshake.headers.user.username});
+        io.broadcast.emit('im online',  data);
+      console.log('ok')
     });
   //online
   
