@@ -84,8 +84,7 @@ this.scene = scene
         var player = new M('o',Math.random()*5,scene);
         socket.on('connect', function() {
   socket.emit('hunts', $('#m').val());
-           $('#m').val('');
-           return false;
+          
           
           socket.on('hunts', function(msg){
              console.log(msg);
