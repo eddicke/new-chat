@@ -92,7 +92,7 @@ this.scene = scene
           socket.on('hunts', function(msg){
              console.log(msg);
             online++;
-            player.name = 'ok'
+            player.name = msg
             //var text = document.getElementById('messages')
             if(online === 2){
             //alert(text.innerHTML);
@@ -157,12 +157,12 @@ this.scene = scene
          })
         socket.on('chat message', function(msg){
           $('#messages').append(msg);
-          player.setEnabled(true)
-          player.name = msg
-            scene.onPointerDown = function(){
-          alert(player.name);
+          //player.setEnabled(true)
+          //player.name = msg
+            //scene.onPointerDown = function(){
+          //alert(player.name);
               //alert(player.name);
-           }
+           //}
          // player.name = msg;
           // scene.onPointerDown = function(){
             //alert(player.name);
