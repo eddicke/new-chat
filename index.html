@@ -83,7 +83,7 @@ this.scene = scene
         var socket = io();
        var online = 0;
         var player = new M('o',Math.random()*5,scene);
-        player.setEnabled(false)
+       // player.setEnabled(false)
         socket.on('connect', function() {
           var text = document.getElementById('messages');
   socket.emit('hunts', text.textContent);
