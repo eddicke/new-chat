@@ -96,7 +96,35 @@ this.scene = scene
           })
          
 });*///initial position
-       
+        //tracking other users
+         var nme = $('#m').val();
+        var nom = 'namee'
+         var txt =   $('#messages').text();
+         var text = document.getElementById('messages').innerHTML();
+        
+            //player.name = $('#m').val();
+        
+        socket.on('connect', function() {
+  socket.emit('hunts', 'online');
+          socket.on('hunts', function(msg){
+            console.log(msg)
+            online++
+            var player = new M(msg,Math.random()*5,scene);
+            console.log(online)
+            
+             var text = document.getElementById('messages').innerHTML();
+           // scene.onPointerDown = function(){
+           // alert(player.name);
+              //alert(player.name);
+           // }
+           // return online;
+            var text = document.getElementById('messages')
+            if(online === 3){
+           socket.emit('state', text.innerHTML);
+          }
+          })
+          
+});
          //tracking other users
         var msgs = [];
         
@@ -115,7 +143,7 @@ this.scene = scene
          })
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
-          var player = new M(msg,Math.random()*5,scene);
+          player.name = msg;
            scene.onPointerDown = function(){
             alert(player.name);
               //alert(player.name);
@@ -126,34 +154,7 @@ this.scene = scene
              console.log(text.innerHTML)
             }
         });
-          //tracking other users
-         var nme = $('#m').val();
-        var nom = 'namee'
-         var txt =   $('#messages').text();
-         var text = document.getElementById('messages').innerHTML();
-        
-            //player.name = $('#m').val();
-        
-        socket.on('connect', function() {
-  socket.emit('hunts', 'online');
-          socket.on('hunts', function(msg){
-            console.log(msg)
-            online++
-            console.log(online)
-            
-             var text = document.getElementById('messages').innerHTML();
-            scene.onPointerDown = function(){
-            alert(player.name);
-              //alert(player.name);
-            }
-           // return online;
-            var text = document.getElementById('messages')
-            if(online === 3){
-           socket.emit('state', text.innerHTML);
-          }
-          })
-          
-});
+         
         //var msgs = [];
        
       });
