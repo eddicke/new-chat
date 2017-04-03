@@ -10,7 +10,7 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
     socket.on('im online', function (data) {
         // announce the online status of a new user
-        io.broadcast.emit('im online',  data);
+        io.emit('im online',  data);
       console.log('ok')
     });
   //online
