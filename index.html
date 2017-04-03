@@ -48,8 +48,9 @@
             online++
             console.log(online)
            // return online;
+            var text = document.getElementById('messages')
             if(online === 3){
-           socket.emit('state', 'stats');
+           socket.emit('state', text.innerHTML);
           }
           })
           
@@ -65,9 +66,9 @@
         });
          socket.on('state', function(stats){
            
-             $('#messages').append($('<li>').text('hellobuddy'));
+             $('#messages').append($('<li>').text(stats));
           var text = document.getElementById('messages')
-          alert(text.innerHTML)
+          alert(stats)
          })
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
