@@ -46,11 +46,12 @@
           socket.on('hunts', function(msg){
             console.log(msg)
             online++
-            return online;
-          })
-          if(online === 2){
+           // return online;
+            if(online === 2){
            socket.emit('state', 'stats');
           }
+          })
+          
 });
          //tracking other users
         var msgs = [];
