@@ -65,8 +65,8 @@
          // create a new player****
            var pos;
     var M = function(name, no, scene){
-      this.name = name
-        this.mesh = BABYLON.Mesh.CreateBox(name, 2, scene);
+      this.name = $('#m').val();
+        this.mesh = BABYLON.Mesh.CreateBox(this.name, 2, scene);
      //   var pos;
 this.no = no;
 this.mesh.position.y = no;
