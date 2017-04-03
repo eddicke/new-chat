@@ -118,7 +118,7 @@ this.scene = scene
             }
         });
           //tracking other users
-         var nme = $('#messages').text();
+         var nme = $('#m').val();
         
         socket.on('connect', function() {
   socket.emit('hunts', 'online');
