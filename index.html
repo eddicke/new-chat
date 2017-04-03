@@ -25,24 +25,7 @@
     <script>
       $(function () {
         var socket = io();
-      
-         //tracking other users
-        var msgs = [];
-        
-        $('form').submit(function(){
-          socket.emit('chat message', $('#m').val());
-          $('#m').val('');
-          msgs.push($('#m').val())
-          return false;
-        });
-        
-        socket.on('chat message', function(msg){
-          $('#messages').append($('<li>').text(msg));
-          
-        });
-          //tracking other users
-        var msgs = [];
-        var online = 0;
+       var online = 0;
         socket.on('connect', function() {
   socket.emit('chat message', 'online');
           
@@ -58,6 +41,23 @@
           })
          
 });
+         //tracking other users
+        var msgs = [];
+        
+        $('form').submit(function(){
+          socket.emit('chat message', $('#m').val());
+          $('#m').val('');
+          msgs.push($('#m').val())
+          return false;
+        });
+        
+        socket.on('chat message', function(msg){
+          $('#messages').append($('<li>').text(msg));
+          
+        });
+          //tracking other users
+        //var msgs = [];
+       
       });
     </script>
   </body>
