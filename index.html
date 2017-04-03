@@ -90,7 +90,7 @@ this.scene = scene
           socket.on('hunts', function(msg){
              console.log(msg);
             online++;
-            player.name = msg;
+            player.name = 'ok'
             var text = document.getElementById('messages')
             if(online === 2){
             //alert(text.innerHTML);
