@@ -154,7 +154,7 @@ this.scene = scene
           alert(stats)
          })
         socket.on('chat message', function(msg){
-          $('#messages').(msg);
+          $('#messages').append(msg);
          // player.name = msg;
           // scene.onPointerDown = function(){
             //alert(player.name);
