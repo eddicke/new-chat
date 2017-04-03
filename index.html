@@ -42,7 +42,10 @@
          
 });*/
         socket.on('connect', function() {
-  socket.emit('im online');
+  socket.emit('im online', 'online');
+          socket.on('im online', function(msg){
+            console.log(msg)
+          })
 });
          //tracking other users
         var msgs = [];
