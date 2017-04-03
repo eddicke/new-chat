@@ -116,6 +116,10 @@ this.scene = scene
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
           var player = new M(msg,Math.random()*5,scene);
+           scene.onPointerDown = function(){
+            alert(player.name);
+              //alert(player.name);
+            }
           $('#mesg').append(stats);
            if(online === 2){
            // alert(text.innerHTML);
