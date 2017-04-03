@@ -7,59 +7,64 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-var nicknames = [];
-var old_messages = [];
-
 io.on('connection', function(socket){
+    console.log('i think i saw something...');
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
+ console.log('i think i saw something...');
   });
-  io.on('connection', function(socket){
-  socket.on('hunts', function(msg){
+  //game try!
+  socket.on('ademola', function(gme){
+    io.emit('ademola', gme);
+  });
+  //power up
+   socket.on('power', function(hunts){
+    io.emit('power', hunts);
+  });
+  //power up2
+   socket.on('power2', function(power){
+    io.emit('power2', power);
+  });
+  //webcam
+socket.on('webcam', function(webcam){
+    io.emit('webcam', webcam);
+  });
+  //move down
+  socket.on('player2-1', function(down){
+    io.emit('player2-1', down);
+  });
+  //player2
+  socket.on('player2', function(hunts){
+    io.emit('player2', hunts);
+  });
+  //move down
+  socket.on('player2-1', function(down){
+    io.emit('player2-1', down);
+  });
+  //player1
+   socket.on('hunts', function(msg){
     io.emit('hunts', msg);
   });
-  //old messages*********************************
-  socket.on('nickname',function(data, callback){
-
-    if (nicknames.indexOf(data) != -1){
-        callback(false);
-    }else{
-        callback(true);
-        nicknames.push(data);
-        socket.nickname = data;
-        io.sockets.emit('nicknames', nicknames);
-
-         //------------ send the old messages-------------
-                    io.sockets.emit('old_messages', old_messages);
-
-
-    }
+   socket.on('player1', function(hunts){
+    io.emit('player1', hunts);
+  });
+  //state-1
+  socket.on('state', function(stats){
+    io.emit('state', stats);
+  });
+   //state-2
+  socket.on('state2', function(stats){
+    io.emit('state2', stats);
+  });
+  //login
+  socket.on('login', function(login){
+    io.emit('login', login);
+  });
+  //move down
+  socket.on('player1-1', function(down){
+    io.emit('player1-1', down);
+  });
 });
-
-socket.on('user message',function (data){
-
-       // ------------ Update de old_message list --------------
-            old_messages.push(socket.nickname + " - " +data);
-            if (old_messages.length > 10)
-            {var aux = old_messages.pop()}
-
-
-    io.sockets.emit('user message', {
-        nick: socket.nickname,
-        message: data
-    });
-});
-
-socket.on('disconnect', function(){
-    if (!socket.nickname) return;
-    if (nicknames.indexOf(socket.nickname) > -1){
-    nicknames.splice(nicknames.indexOf(socket.nickname),1);
-    }
-    io.sockets.emit('nicknames', nicknames);
-});
-  //***********************************************
-});
-
 http.listen(port, function(){
   console.log('listening on *:' + port);
 });
