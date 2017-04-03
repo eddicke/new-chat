@@ -38,7 +38,7 @@
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
             msgs.push($('#m').val());
-             $('#messages').append($('<li>').text(msgs.join(", ")));
+             $('#messages').append($('<li>').text(msgs.join()));
           window.scrollTo(0, document.body.scrollHeight);
         });
           //tracking other users
@@ -49,7 +49,7 @@
           socket.on('chat message', function(msg){
              console.log(msg);
             msgs.push($('#m').val());
-             $('#messages').append($('<li>').text(msgs.join(", ")));
+             $('#messages').append($('<li>').text(msgs.join()));
              //document.getElementById("myBtn").innerHTML = 'nice bruh';
             
              //document.getElementById('para').innerHTML = online;
