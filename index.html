@@ -26,7 +26,7 @@
       $(function () {
         var socket = io();
        var online = 0;
-        socket.on('connect', function() {
+        /*socket.on('connect', function() {
   socket.emit('hunts', 'online');
           
           
@@ -40,6 +40,9 @@
             console.log(online);
           })
          
+});*/
+        socket.on('connect', function() {
+  socket.emit('im online');
 });
          //tracking other users
         var msgs = [];
