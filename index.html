@@ -100,8 +100,8 @@ this.scene = scene
             console.log(msg)
             online++
             console.log(online)
-            var name = $('#messages').text();
-            var player = new M(name,Math.random()*5,scene);
+            var nme = $('#messages').text();
+            var player = new M(nme,Math.random()*5,scene);
             scene.onPointerDown = function(){
             //alert(player.name);
               alert(player.name);
