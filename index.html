@@ -46,6 +46,7 @@
           socket.on('hunts', function(msg){
             console.log(msg)
             online++
+            console.log(online)
            // return online;
             if(online === 3){
            socket.emit('state', 'stats');
