@@ -81,6 +81,7 @@ this.scene = scene
       $(function () {
         var socket = io();
        var online = 0;
+        var player = new M('o',Math.random()*5,scene);
         /*socket.on('connect', function() {
   socket.emit('hunts', 'online');
           
@@ -97,7 +98,7 @@ this.scene = scene
          
 });*///initial position
         //tracking other users
-         var nme = $('#m').val();
+         /*var nme = $('#m').val();
         var nom = 'namee'
          var txt =   $('#messages').text();
          var text = document.getElementById('messages').innerHTML();
@@ -129,7 +130,7 @@ this.scene = scene
           }
           })
           
-});
+});*/
          //tracking other users
         var msgs = [];
         
