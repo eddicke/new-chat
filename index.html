@@ -46,7 +46,11 @@
           socket.on('hunts', function(msg){
             console.log(msg)
             online++
+            return online;
           })
+          if(online === 2){
+           socket.emit('state', 'stats');
+          }
 });
          //tracking other users
         var msgs = [];
@@ -57,11 +61,10 @@
           msgs.push($('#m').val())
           return false;
         });
-         socket.on('hunts', function(msg){
-           if(online === 2){
-           alert('ok')
+         socket.on('state', function(stats){
+           
              $('#messages').append($('<li>').text('hellobuddy'));
-           }
+          
          })
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
